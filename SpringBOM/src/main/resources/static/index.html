@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon!</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.min.js"
+            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+            crossorigin="anonymous"></script>
+<body>
+<a href="index.html">GET Pokemon</a>
+<br>
+<a href="add.html">ADD Pokemon</a>
+<br>
+<a href="update.html">UPDATE Pokemon</a>
+<br>
+<a href="delete.html">DELETE Pokemon</a>
+<br><br>
+<h2>All Pokemon</h2>
+<span id="stuff"></span>
+<script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var content = "<table>";
+            for (var property in myObj) {
+                if (myObj.hasOwnProperty(property)) {
+                    content += "<tr><td>" + myObj[property].name + "</td><td>" +
+                        myObj[property].type + "</td></tr>";
+                }
+            }
+            content += "</table>"
+            document.getElementById("stuff").innerHTML = content;
+        }
+    };
+    xmlhttp.open("GET", "/Pokemon", true);
+    xmlhttp.send();
+</script>
+<br><br>
+<h2>Look Charmander!</h2>
+<span id="charmander"></span>
+<script>
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            var content = "<table>";
+            content += "<tr><td>" + myObj.name + "</td><td>" + myObj.type +
+                "</td></tr>";
+            content += "</table>"
+            document.getElementById("charmander").innerHTML = content;
+        }
+    };
+    xmlhttp2.open("GET", "/Pokemon/Charmander", true);
+    xmlhttp2.send();
+</script>
+
+
+</body>
+</html>

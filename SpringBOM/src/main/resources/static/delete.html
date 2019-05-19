@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Pokemon</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.min.js"
+            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="index.html">GET Pokemon</a>
+<br>
+<a href="add.html">ADD Pokemon</a>
+<br>
+<a href="update.html">UPDATE Pokemon</a>
+<br>
+<a href="delete.html">DELETE Pokemon</a>
+<br><br>
+<h2>DELETE a Pokemon</h2>
+<form id="thePokemon">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <button type="button" id="deletePokemon">Delete Pokemon</button>
+    </div>
+</form>
+<script>
+    $( "#deletePokemon" ).on("click" ,function( event ) {
+        var name = $( "#name" ).val();
+        var oReq = new XMLHttpRequest();
+
+        oReq.open("DELETE", "/Pokemon/"+ name);
+        oReq.setRequestHeader("Content-Type", "application/json");
+        oReq.send();
+        console.log("Deleted: " + name + " from List of Pokemon. ");
+    });
+</script>
+
+</body>
+</html>

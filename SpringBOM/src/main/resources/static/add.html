@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Pokemon</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.min.js"
+            integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="index.html">GET Pokemon</a>
+<br>
+<a href="add.html">ADD Pokemon</a>
+<br>
+<a href="update.html">UPDATE Pokemon</a>
+<br>
+<a href="delete.html">DELETE Pokemon</a>
+<br><br>
+<h2>ADD a Pokemon</h2>
+<form id="thePokemon">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label>Type</label>
+        <input type="text" name="type" id="type">
+    </div>
+    <div>
+        <button type="button" id="addPokemon">Add Pokemon</button>
+    </div>
+</form>
+<script>
+    $( "#addPokemon" ).on("click" ,function( event )
+        {
+            var finishedMessage="{";
+            var message = $( "#thePokemon" ).serializeArray();
+
+                $.each(message,function (i, field)
+                    {
+                        finishedMessage+="\"" + field.name + "\":\"" + field.value + "\",";
+                    }
+                );
+
+            finishedMessage = finishedMessage.substring(0,finishedMessage.length - 1) + "}";
+            var oReq = new XMLHttpRequest();
+
+            oReq.open("POST", "/Pokemon");
+            oReq.setRequestHeader("Content-Type", "application/json");
+            oReq.send(finishedMessage);
+            console.log(finishedMessage);
+        }
+    );
+</script>
+
+</body>
+</html>
