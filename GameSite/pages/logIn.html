@@ -1,0 +1,43 @@
+<div class="text-center">
+	<h1>User Sign-In</h1>
+</div>
+<br>
+<div class="row" ng-controller="authCtrl">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-6 card mb-4">
+		<h5 class="card-header">Log-In</h5>
+			<div class="card-body">
+			<div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="userName">Username/Email</label>
+                <input type="text" class="form-control" id="userName" placeholder="Username/Email" value="" required>
+                <div class="invalid-feedback">
+                  Username/Email is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" placeholder="Password" value="" required>
+                <div class="invalid-feedback">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+			<button class="btn btn-secondary" type="button" ng-click="login()">Submit</button>
+		</div>
+	</div>
+	<div class="col-md-3 card mb-4">
+		<h5 class="card-header">Dont Have an Account?</h5>
+			<div class="card-body">
+				<a href="#!register"><button class="btn btn-primary" style="padding: 15px;" type="button">Register Here!</button>	</a>		
+			</div>
+	</div>
+</div>
+
+
+
+
+
+
+

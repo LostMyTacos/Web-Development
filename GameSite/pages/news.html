@@ -1,0 +1,30 @@
+<!-- Page Heading/Breadcrumbs -->
+<div ng-controller="newsController">
+   <h1>Latest News!</h1>
+	<p style="margin-left: 15px;">But only the recent stuff...</p>
+     <div class="row">
+          <div class="card my-6 col-md-12" >
+            <h5 class="card-header">Yay news!</h5>
+            <div class="card-body">
+              This page allows you to constantly get the latest and greatest in the gaming world. Its just a click away!
+			  <br>
+			  <button class="btn btn-primary" style="margin-top: 10px;" ng-click="getNews()">Get the latest News</button>
+            </div>			
+          </div>
+        </div>
+	  <br>
+      <div class="row">
+          <!-- Blog Post -->
+          <div class="col-md-4 card mb-4" ng-repeat="news in articles">
+            <img class="card-img-top" style="margin-top: 15px;" src="{{news.image}}" alt="">
+            <div class="card-body">
+              <h2 class="card-title">{{news.title}}</h2>
+              <p class="card-text">{{news.summary}}</p>
+              <a href="{{news.url}}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              {{news.author}}
+            </div>
+		  </div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<div class="text-center">
+	<h1>Welcome to the {{appName}}</h1>
+	<img class="img-fluid" src="images/GamingWallpaper.jpg" alt="Gaming Wallpaper">
+</div>
+<br>
+<div ng-controller="nameSearchController">
+	<div class="card mb-4">
+        <h5 class="card-header">Search for a Game!</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input ng-model="searchGame" type="text" class="form-control" placeholder="Game's Title">
+                <span class="input-group-btn">
+					&nbsp; &nbsp;
+                  <button ng-click="getGames()" class="btn btn-secondary" type="button"> Search <i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+        </div>
+	<div ng-repeat="game in games">
+		<span>{{game.name}}</span>
+	</div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>{{appName}}</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/GameSite.css" rel="stylesheet">
+	
+	<!-- Angular and Bootstrap core JavaScript --> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script>
+
+	<!-- AngularJS UI Boostrap 4 and required libraries  --> 
+	<!-- https://morgul.github.io/ui-bootstrap4/ --> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-touch.min.js"></script> 
+	<script src="vendor/ui-bootstrap/js/ui-bootstrap-tpls-3.0.4.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+	<!-- Our JS code --> 
+	<script src="js/GameSite.js"></script>
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container"> <a class="navbar-brand" href="#">{{appName}} <i class="fa fa-gamepad"></i></a>
+    <button class="navbar-toggler" type="button" ng-click="isNavCollapsed = !isNavCollapsed" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+    <div class="collapse navbar-collapse" id="navbarResponsive" uib-collapse="isNavCollapsed">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" ng-class="{active: isActive('/')}"><a class="nav-link" href="#"><i class="fa fa-home"></i> Home </a></li>
+        <li class="nav-item" ng-class="{active: isActive('/news')}"><a class="nav-link" href="#!news"><i class="fa fa-newspaper-o"></i> News </a></li>
+        <li class="nav-item" ng-class="{active: isActive('/products')}"><a class="nav-link" href="#!products"><i class="fa fa-money"></i> Products <span class="sr-only">(current)</span></a></li>
+		<li class="nav-item">
+			<span uib-dropdown on-toggle="toggled(open)">
+			  <a href id="simple-dropdown" uib-dropdown-toggle class="nav-link"><i class="fa fa-user"></i> Account</a>
+				  <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+					<a href="#!account" ng-class="{active: isActive('/account')}" ng-show="authUser" class="dropdown-item"><i class="fa fa-fort-awesome"></i> Profile</a>
+					<a href="#!settings" ng-class="{active: isActive('/settings')}" ng-show="authUser" class="dropdown-item"><i class="fa fa-cog"></i> Settings</a>
+					<a href="#!register" ng-class="{active: isActive('/registration')}" ng-hide="authUser" class="dropdown-item"><i class="fa fa-user-plus"></i> Register</a>
+					<a href="#!logIn" ng-class="{active: isActive('/logIn')}" ng-hide="authUser" class="dropdown-item"><i class="fa fa-sign-in"></i> Log-In</a>
+					<a href="#" ng-click="logout()" ng-show="authUser" class="dropdown-item"><i class="fa fa-sign-out"></i> Log-Out</a>
+				  </div>
+        	</span>
+		</li>
+		<li class="nav-item" ng-show="authUser" ng-class="{active: isActive('/cart')}"><a class="nav-link" href="#!cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container content" ng-view autoscroll="true">
+	
+</div>
+<!-- /.container --> 
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; {{appName}} {{copyright}}.</p>
+  </div>
+</footer>
+	
+</body>
+</html>

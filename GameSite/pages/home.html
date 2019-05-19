@@ -1,0 +1,67 @@
+<header style="background-color: black;">
+	<div class="text-center" style="color: white;">
+		<h1>Welcome to the {{appName}}!</h1>
+		<img class="img-fluid" src="images/GamingWallpaper.jpg" alt="Gaming Wallpaper">		
+	</div>	 
+</header>
+	<br>
+	<div ng-controller="productsController">
+      <div class="row text-center">
+        <div class="col-lg-4 col-md-6 mb-4" ng-repeat="item in latestProducts">
+          <div class="card">
+            <img class="card-img-top" src="{{item.image}}" alt="">
+            <div class="card-body" style="height: 250px;">
+              <h4 class="card-title">{{item.name}}</h4>
+              <p class="card-text">{{item.text}}</p>
+            </div>
+			  <img class="img-fluid" src="{{item.image2}}" alt="">
+            <div class="card-footer"> 
+				<a href="#!product/{{item.productId}}" class="btn btn-primary">Find Out More!</a>
+            </div>
+          </div>
+        </div>
+	 </div>     
+	<div ng-controller="NameSearchController">
+	<div class="card mb-4">
+        <h5 class="card-header">Search for a Game!</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input ng-model="searchGame" type="text" class="form-control" placeholder="Game's Title">
+                <span class="input-group-btn">
+					&nbsp; &nbsp;
+                  <button ng-click="getGames()" class="btn btn-secondary" type="button"> Search <i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+        </div>
+	<!-- Product Listing -->
+	<div class="row text-center">
+		<div class="col-lg-4 col-md-6 mb-4" ng-repeat="game in games">
+          <div class="card">
+			<a href="#!product/{{game.id}}"><img class="img-fluid" style="margin: 10px; height: 100px;"  src="{{game.cover.url}}" alt=""></a>
+            <div class="card-body" style="height: 150px;">
+              <h4 class="card-title"><a href="#!product/{{game.id}}">{{game.name}}</a></h4>
+            	<div class="card-footer text-muted">
+              		Rating: {{game.rating}}
+				</div>
+              </div>
+			</div>
+          </div>
+		</div>
+	  </div>
+    </div>
+<!-- Xbox Ad -->
+		<script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_search_bar = "false";
+			amzn_assoc_tracking_id = "lostmytacos-20";
+			amzn_assoc_ad_mode = "manual";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_title = "Xbox One Essentials";
+			amzn_assoc_linkid = "bdfcae918f63d7ad8c38d585fd567892";
+			amzn_assoc_asins = "B01M275W1G,B071JRHDFQ,B07DKT3WJ2,B074WPGYRF";
+			</script>
+		<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<br>
