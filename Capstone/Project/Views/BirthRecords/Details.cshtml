@@ -1,0 +1,354 @@
+﻿@model Project.Models.BirthRecordVM
+@using Microsoft.AspNetCore.Mvc.Rendering;
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    dt {
+        clear: left;
+    }
+    dt, dd {
+        min-height: 1.5em;
+        margin-left: 25px;
+    }
+</style>
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="underline-Heading">
+            <h2>Birth Record Details</h2>
+        </div>
+        <br />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <h4>Birth Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthRecordID)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthRecordID)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.WasHomeBirth)</dt>
+            <dd class='col-sm-7'>@(Model.WasHomeBirth ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.WasPlannedHomeBirth)</dt>
+            <dd class='col-sm-7'>@(Model.WasPlannedHomeBirth ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.OtherBirthLocation)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.OtherBirthLocation)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MaternalTransfusion)</dt>
+            <dd class='col-sm-7'>@(Model.MaternalTransfusion ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PerinealLaceration)</dt>
+            <dd class='col-sm-7'>@(Model.PerinealLaceration ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.RupturedUterus)</dt>
+            <dd class='col-sm-7'>@(Model.RupturedUterus ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.UnplannedHysterectomy)</dt>
+            <dd class='col-sm-7'>@(Model.UnplannedHysterectomy ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.AdmitToICU)</dt>
+            <dd class='col-sm-7'>@(Model.AdmitToICU ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.UnplannedOperationPostDelivery)</dt>
+            <dd class='col-sm-7'>@(Model.UnplannedOperationPostDelivery ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.User)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.User)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.EntryDate)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.EntryDate)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Tocolysis)</dt>
+            <dd class='col-sm-7'>@(Model.Tocolysis ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ExternalCephalic)</dt>
+            <dd class='col-sm-7'>@(Model.ExternalCephalic ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreRuptureMembrane)</dt>
+            <dd class='col-sm-7'>@(Model.PreRuptureMembrane ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PrecipitousLabor)</dt>
+            <dd class='col-sm-7'>@(Model.PrecipitousLabor ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ProlongedLabor)</dt>
+            <dd class='col-sm-7'>@(Model.ProlongedLabor ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.InductionLabor)</dt>
+            <dd class='col-sm-7'>@(Model.InductionLabor ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.AugmentationLabor)</dt>
+            <dd class='col-sm-7'>@(Model.AugmentationLabor ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.NonVertex)</dt>
+            <dd class='col-sm-7'>@(Model.NonVertex ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Steroids)</dt>
+            <dd class='col-sm-7'>@(Model.Steroids ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Antibotics)</dt>
+            <dd class='col-sm-7'>@(Model.Antibotics ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Chorioamnionitis)</dt>
+            <dd class='col-sm-7'>@(Model.Chorioamnionitis ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MeconiumStaining)</dt>
+            <dd class='col-sm-7'>@(Model.MeconiumStaining ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Epidural)</dt>
+            <dd class='col-sm-7'>@(Model.Epidural ? "Yes" : "No")</dd>
+        </dl>
+        <h4>New Born Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.NewBornID)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.NewBornID)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.InfantLiving)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.InfantLiving)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BreastFed)</dt>
+            <dd class='col-sm-7'>@(Model.BreastFed ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthWeight)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthWeight)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FiveMinApgarScore)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FiveMinApgarScore)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.TenMinApgarScore)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.TenMinApgarScore)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthOrder)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthOrder)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthTime)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthTime)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PaternityAck)</dt>
+            <dd class='col-sm-7'>@(Model.PaternityAck ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.SsnRequested)</dt>
+            <dd class='col-sm-7'>@(Model.SsnRequested ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CertifiedDate)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CertifiedDate)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FiledDate)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FiledDate)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FetalIntolerance)</dt>
+            <dd class='col-sm-7'>@(Model.FetalIntolerance ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.UnsuccessfulForceps)</dt>
+            <dd class='col-sm-7'>@(Model.UnsuccessfulForceps ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.UnsuccessfulVacuum)</dt>
+            <dd class='col-sm-7'>@(Model.UnsuccessfulVacuum ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PresentationAtBirthCephalic)</dt>
+            <dd class='col-sm-7'>@(Model.PresentationAtBirthCephalic ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PresentationAtBirthBreach)</dt>
+            <dd class='col-sm-7'>@(Model.PresentationAtBirthBreach ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.OtherFetalPresentation)</dt>
+            <dd class='col-sm-7'>@(Model.OtherFetalPresentation ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.RouteSpontaneous)</dt>
+            <dd class='col-sm-7'>@(Model.RouteSpontaneous ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.RouteForcepts)</dt>
+            <dd class='col-sm-7'>@(Model.RouteForcepts ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.RouteVacuum)</dt>
+            <dd class='col-sm-7'>@(Model.RouteVacuum ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Cesarean)</dt>
+            <dd class='col-sm-7'>@(Model.Cesarean ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FinalTrialOfLabor)</dt>
+            <dd class='col-sm-7'>@(Model.FinalTrialOfLabor ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.VenImmediate)</dt>
+            <dd class='col-sm-7'>@(Model.VenImmediate ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.VentSixHours)</dt>
+            <dd class='col-sm-7'>@(Model.VentSixHours ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Nicu)</dt>
+            <dd class='col-sm-7'>@(Model.Nicu ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Surfactant)</dt>
+            <dd class='col-sm-7'>@(Model.Surfactant ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.NeoNatalAntibotics)</dt>
+            <dd class='col-sm-7'>@(Model.NeoNatalAntibotics ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.SeizureDysfunction)</dt>
+            <dd class='col-sm-7'>@(Model.SeizureDysfunction ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthInjury)</dt>
+            <dd class='col-sm-7'>@(Model.BirthInjury ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Anencephaly)</dt>
+            <dd class='col-sm-7'>@(Model.Anencephaly ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Meningomyelocele)</dt>
+            <dd class='col-sm-7'>@(Model.Meningomyelocele ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Cyanotic)</dt>
+            <dd class='col-sm-7'>@(Model.Cyanotic ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Cogenital)</dt>
+            <dd class='col-sm-7'>@(Model.Cogenital ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Omphalocele)</dt>
+            <dd class='col-sm-7'>@(Model.Omphalocele ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Gastroschisis)</dt>
+            <dd class='col-sm-7'>@(Model.Gastroschisis ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.LimbReduction)</dt>
+            <dd class='col-sm-7'>@(Model.LimbReduction ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CleftLip)</dt>
+            <dd class='col-sm-7'>@(Model.CleftLip ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CleftPalate)</dt>
+            <dd class='col-sm-7'>@(Model.CleftPalate ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DownSyndromeConfirmed)</dt>
+            <dd class='col-sm-7'>@(Model.DownSyndromeConfirmed ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DownSyndromePending)</dt>
+            <dd class='col-sm-7'>@(Model.DownSyndromePending ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ChromosomalDisorderConfirmed)</dt>
+            <dd class='col-sm-7'>@(Model.ChromosomalDisorderConfirmed ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ChromosomalDisorderPending)</dt>
+            <dd class='col-sm-7'>@(Model.ChromosomalDisorderPending ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Hypospadias)</dt>
+            <dd class='col-sm-7'>@(Model.Hypospadias ? "Yes" : "No")</dd>
+        </dl>
+        <h4>Prenatal Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PrenatalID)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PrenatalID)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FirstPrenatal)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FirstPrenatal)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.LastPreNatal)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.LastPreNatal)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.TotalPrenatal)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.TotalPrenatal)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MotherPreWeight)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MotherPreWeight)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MotherDeliveryWeight)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MotherDeliveryWeight)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MotherPostWeight)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MotherPostWeight)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HadWic)</dt>
+            <dd class='col-sm-7'>@(Model.HadWic ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.EstimateGestation)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.EstimateGestation)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DateLastMenstruation)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.DateLastMenstruation)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreviousBirthLiving)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PreviousBirthLiving)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.LastLiveBirth)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.LastLiveBirth)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.OtherBirthOutcome)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.OtherBirthOutcome)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.LastOtherOutcome)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.LastOtherOutcome)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CigThreeMonthsBeforePregnancy)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CigThreeMonthsBeforePregnancy)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CigFirstThreeMonthsPregnacy)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CigFirstThreeMonthsPregnacy)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CigSecondThreeMonthsPregnancy)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CigSecondThreeMonthsPregnancy)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CigThridTrimesterPregnancy)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CigThridTrimesterPregnancy)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DiabetesPrePregnancy)</dt>
+            <dd class='col-sm-7'>@(Model.DiabetesPrePregnancy ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DiabetesGestational)</dt>
+            <dd class='col-sm-7'>@(Model.DiabetesGestational ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HypertensionPrePregnancy)</dt>
+            <dd class='col-sm-7'>@(Model.HypertensionPrePregnancy ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HypertensionGestational)</dt>
+            <dd class='col-sm-7'>@(Model.HypertensionGestational ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HypertensionEclampsia)</dt>
+            <dd class='col-sm-7'>@(Model.HypertensionEclampsia ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreviousPreTermBirth)</dt>
+            <dd class='col-sm-7'>@(Model.PreviousPreTermBirth ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreviousPoorBirthOutcome)</dt>
+            <dd class='col-sm-7'>@(Model.PreviousPoorBirthOutcome ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FertilityDrugUsed)</dt>
+            <dd class='col-sm-7'>@(Model.FertilityDrugUsed ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.AssistedTechUsed)</dt>
+            <dd class='col-sm-7'>@(Model.AssistedTechUsed ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreviousCesarean)</dt>
+            <dd class='col-sm-7'>@(Model.PreviousCesarean ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PreviousCesareanAmount)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PreviousCesareanAmount)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Gonorrhea)</dt>
+            <dd class='col-sm-7'>@(Model.Gonorrhea ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Syphilis)</dt>
+            <dd class='col-sm-7'>@(Model.Syphilis ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Chlamydia)</dt>
+            <dd class='col-sm-7'>@(Model.Chlamydia ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HepB)</dt>
+            <dd class='col-sm-7'>@(Model.HepB ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.HepC)</dt>
+            <dd class='col-sm-7'>@(Model.HepC ? "Yes" : "No")</dd>
+        </dl>
+
+        <h4>Patient Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PatientID)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PatientID)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MedicalRecordNumber)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MedicalRecordNumber)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DateCreated)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.DateCreated)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.DateUpdated)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.DateUpdated)</dd>
+        </dl>
+
+        <h4>Person Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MotherEducationEarnedName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MotherEducationEarnedName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FirstName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FirstName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MiddleName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MiddleName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.LastName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.LastName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Suffix)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.Suffix)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Gender)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.Gender)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthDate)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthDate)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthPlace)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthPlace)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.BirthCounty)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.BirthCounty)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ResidentStreetAddress)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.ResidentStreetAddress)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ResidentAptNo)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.ResidentAptNo)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ResidentCity)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.ResidentCity)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ResidenceState)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.ResidenceState)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.ResidenceZip)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.ResidenceZip)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MailingStreetAddress)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MailingStreetAddress)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MailingAptNo)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MailingAptNo)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MailingCity)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MailingCity)</dd>
+            @*<dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MailingState)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MailingState)</dd>*@
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.MailingZip)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.MailingZip)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Height)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.Height)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.Weight)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.Weight)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.IsMarried)</dt>
+            <dd class='col-sm-7'>@(Model.IsMarried ? "Yes" : "No")</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PriorFirstName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PriorFirstName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PriorMiddleName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PriorMiddleName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PriorLastName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PriorLastName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PriorSuffix)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PriorSuffix)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.InCity)</dt>
+            <dd class='col-sm-7'>@(Model.InCity ? "Yes" : "No")</dd>
+        </dl>
+
+        <h4>Certifier Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.CertifierName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.CertifierName)</dd>
+        </dl>
+
+        <h4>Attendant Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.NPI)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.NPI)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.JobTitle)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.JobTitle)</dd>
+        </dl>
+
+        <h4>Payment Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.PaymentSource)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.PaymentSource)</dd>
+        </dl>
+
+        <h4>Facility Record Details</h4>
+        <dl class="row">
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FacilityName)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FacilityName)</dd>
+            <dt class='col-sm-3'>@Html.DisplayNameFor(model => model.FacilityNumber)</dt>
+            <dd class='col-sm-7'>@Html.DisplayFor(model => model.FacilityNumber)</dd>
+        </dl>
+
+        <div class="row">
+            <div class="col-md-12">
+                <a asp-action="Details" asp-controller="Patients" asp-route-id="@Model.PatientID"  class="btn btn-primary">Back to List</a>
+                <div class="pull-right">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.BirthRecordID }, new { @class = "btn btn-warning" })
+                    @*
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.FacilityId }, new { @class = "btn btn-danger" })
+                    *@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

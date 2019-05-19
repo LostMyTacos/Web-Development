@@ -1,0 +1,41 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="panel">
+    <div class="panel-body">
+            <div class="underline-Heading">
+                <h2>User Details</h2>
+            </div>
+            <br />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+    </div>
+</div>

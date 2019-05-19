@@ -1,0 +1,38 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="panel">
+    <div class="panel-body">
+        <h3>Welcome to BRIT Systems. Please log in.</h3>
+        <br />
+        <h4 style="color:red;">@TempData["error"]</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form id="account" method="post">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input asp-for="Input.Email" id="email" placeholder="Email Address" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input asp-for="Input.Password" id="password" placeholder="Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary col-sm-offset-1 col-sm-8">Sign In</button>
+                    </div>
+                    <br />
+                    <p class="col-md-12" style="text-align: center"><a asp-area="Identity" asp-page="/Account/Register">Don't have an account?</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

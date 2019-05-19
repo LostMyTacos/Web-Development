@@ -1,0 +1,217 @@
+﻿@model IEnumerable<Project.Data.BirthRecord>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WasHomeBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WasPlannedHomeBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherBirthLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaternalTransfusion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerinealLaceration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RupturedUterus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnplannedHysterectomy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdmitToIcu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnplannedOperationPostDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tocolysis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExternalCephalic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreRuptureMembrane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecipitousLabor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProlongedLabor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InductionLabor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AugmentationLabor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NonVertex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Steroids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antibiotics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chorioamnoionitis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeconiumStaining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Epidural)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Certifier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FacilityTransferIdmomNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenatal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WasHomeBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WasPlannedHomeBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherBirthLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaternalTransfusion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerinealLaceration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RupturedUterus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnplannedHysterectomy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmitToIcu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnplannedOperationPostDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tocolysis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExternalCephalic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreRuptureMembrane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecipitousLabor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProlongedLabor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InductionLabor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AugmentationLabor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NonVertex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Steroids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Antibiotics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chorioamnoionitis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeconiumStaining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Epidural)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attendant.AttendantId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Certifier.CertifierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facility.FacilityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacilityTransferIdmomNavigation.FacilityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherPerson.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentType.PaymentTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenatal.PrenatalId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BirthRecordId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BirthRecordId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BirthRecordId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

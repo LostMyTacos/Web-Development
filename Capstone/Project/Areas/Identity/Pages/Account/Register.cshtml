@@ -1,0 +1,47 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register Account";
+}
+
+
+<div class="panel">
+    <div class="panel-body">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="userForm">
+            <div class="underline-Heading">
+                <h2>Create an Account</h2>
+            </div>
+            <br />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email">WCTC Email Address</label>
+                <input asp-for="Input.Email" class="form-control" />
+                <span asp-validation-for="Input.Email" type="email" name="email" id="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+            <a asp-area="" asp-controller="Home" asp-action="Index"><input type="button" value="Cancel" class="btn btn-danger"></a>
+        </form>
+    </div>
+</div>
+
+

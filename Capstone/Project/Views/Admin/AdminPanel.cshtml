@@ -1,0 +1,24 @@
+﻿@model Project.Data.Person
+
+@{
+    ViewBag.Title = "Admin Panel";
+}
+<div class="panel">
+    <div class="panel-body">
+        <div class="underline-Heading">
+            <h2>Adminstration Panel</h2>
+        </div>
+        <div class="col-md-offset-1">
+            <br>
+            <label><a asp-area="" asp-controller="Admin" asp-action="Index">Manage Users</a></label>
+            <br>
+            <label><a asp-area="" asp-controller="RoleAdmin" asp-action="Index">Manage Role Assignment</a></label>
+            <br />
+            <label><a asp-area="" asp-controller="Facility" asp-action="Index">Manage Facilities</a></label>
+            <br />
+            <label><a asp-area="" asp-controller="Patients" asp-action="Index">Manage Patients</a></label>
+            <br />
+            @*<label><a href="~/Logs/Index">View Log</a></label>*@
+        </div>
+    </div>
+</div>
